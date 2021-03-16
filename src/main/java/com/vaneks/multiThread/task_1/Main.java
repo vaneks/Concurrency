@@ -32,44 +32,30 @@ class Foo {
             e.printStackTrace();
         }
         System.out.println("third");
+        first.release();
     }
 }
-class First implements Runnable {
+class Method implements Runnable {
     Foo foo;
-    First(Foo foo){
+    String string;
+    Method(Foo foo,String s){
         this.foo = foo;
-        new Thread(this, "First").start();
+        string = s;
+        new Thread(this, "Method").start();
     }
     public void run(){
-        foo.first();
+        if(string=="1")foo.first();
+        if(string=="2")foo.second();
+        if(string=="3")foo.third();
     }
 }
-class Second implements Runnable {
-    Foo foo;
-    Second(Foo foo){
-        this.foo = foo;
-        new Thread(this, "Second").start();
-    }
-    public void run(){
-        foo.second();
-    }
-}
-class Third implements Runnable {
-    Foo foo;
-    Third(Foo foo){
-        this.foo = foo;
-        new Thread(this, "Third").start();
-    }
-    public void run(){
-        foo.third();
-    }
-}
+
 public class Main {
     public static void main(String[] args) {
         Foo foo = new Foo();
-        new Thread(new Second(foo)).start();
-        new Thread(new Third(foo)).start();
-        new Thread(new First(foo)).start();
+        new Thread(new Method(foo,"2")).start();
+        new Thread(new Method(foo,"3")).start();
+        new Thread(new Method(foo,"1")).start();
     }
 }
 
