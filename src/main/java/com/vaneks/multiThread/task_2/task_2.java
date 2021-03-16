@@ -1,4 +1,4 @@
-package main.java.com.vaneks.javacore.multi2;
+package main.java.com.vaneks.javacore.task_2;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
@@ -36,7 +36,6 @@ class Multi implements Runnable {
     }
     @Override
     public void run() {
-
         for (int i = 1; i <= n; i++) {
             if(name=="fizzbuzz")fizzBuzz.fizzbuzz(i);
             if(name=="fizz")fizzBuzz.fizz(i);
