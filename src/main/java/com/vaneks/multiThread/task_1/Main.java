@@ -41,7 +41,6 @@ class Method implements Runnable {
     Method(Foo foo,String s){
         this.foo = foo;
         string = s;
-        new Thread(this, "Method").start();
     }
     public void run(){
         if(string=="1")foo.first();
