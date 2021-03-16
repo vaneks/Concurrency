@@ -14,6 +14,7 @@ class Foo {
             e.printStackTrace();
         }
         System.out.println("first");
+        first.release();
         second.release();
     }
     public void second() {
@@ -32,7 +33,6 @@ class Foo {
             e.printStackTrace();
         }
         System.out.println("third");
-        first.release();
     }
 }
 class Method implements Runnable {
