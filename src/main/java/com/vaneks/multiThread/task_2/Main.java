@@ -1,4 +1,4 @@
-package main.java.com.vaneks.multiThread.task_1.task2;
+package main.java.com.vaneks.multiThread.task2;
 
 import java.util.concurrent.CyclicBarrier;
 
